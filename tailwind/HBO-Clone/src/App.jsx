@@ -3,6 +3,7 @@ import { Banner } from "./components/Banner";
 import { Header } from "./components/Header";
 import { navData } from "./constans";
 import { Gallery } from "./components/Gallery";
+import FooterGallery from "./components/FooterGallery";
 
 export const BASE_URL = "https://image.tmdb.org/t/p/original";
 
@@ -39,6 +40,7 @@ export function App() {
         description={data?.results?.[i]?.overview}
       />
       <Gallery data={data?.results} title={"TV Action & Adventure"} />
+      <FooterGallery />
     </div>
   );
 }
