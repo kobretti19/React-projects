@@ -3,8 +3,16 @@ import classes from "./page.module.css";
 
 import { getMeal } from "@/lib/meals";
 
-export default function MealDetailsPage({ params }) {
-  const meal = getMeal(params.mealSlug);
+export async function generateMetadata({ params }) {
+  const meal = await getMeal(params.mealSlug);
+  return {
+    title: `${meal.title}`,
+    description: `Details about the meal ${meal.summary}`,
+  };
+}
+
+export default async function MealDetailsPage({ params }) {
+  const meal = await getMeal(params.mealSlug);
 
   meal.instructions = meal.instructions.replace(/\n/g, `<br />`);
 
