@@ -1,33 +1,47 @@
-import MeetupList from "../components/meetups/MeetupList";
+import Head from "next/head";
+import { MongoClient } from "mongodb";
 
-const DUMMY_MEETUPS = [
-  {
-    id: "m1",
-    title: "A First Meetup",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/0/08/Justizpalast_M%C3%BCnchen_am_Stachus_%28Karlsplatz%29_%282019%29.jpg",
-    adress: "Some adress 5, 12345 Some City",
-    description: "This is a first meetup",
-  },
-  {
-    id: "m2",
-    title: "A Second Meetup",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/0/08/Justizpalast_M%C3%BCnchen_am_Stachus_%28Karlsplatz%29_%282019%29.jpg",
-    adress: "Some adress 10, 12345 Some City",
-    description: "This is a second meetup",
-  },
-];
+import MeetupList from "../components/meetups/MeetupList";
+import { Fragment } from "react";
 
 function HomePage(props) {
-  return <MeetupList meetups={props.meetups} />;
+  return (
+    <Fragment>
+      <Head>
+        <title>React Meetups</title>
+        <meta
+          name="description"
+          content="Browse a huge list of highly active React meetups!"
+        />
+      </Head>
+      <MeetupList meetups={props.meetups} />
+    </Fragment>
+  );
 }
 
 export async function getStaticProps() {
+  const client = await MongoClient.connect(
+    "mongodb+srv://martinpetroski:mb5bsXfWJat6w2rZ@cluster0.42th8.mongodb.net/meetups?retryWrites=true&w=majority&appName=Cluster0"
+  );
+
+  const db = client.db();
+  const meetupsCollection = db.collection("meetups");
+
+  const meetups = await meetupsCollection.find().toArray();
+
+  client.close();
+
   return {
     props: {
-      meetups: DUMMY_MEETUPS,
+      meetups: meetups.map((meatup) => ({
+        title: meatup.title,
+        image: meatup.image,
+        address: meatup.address,
+        description: meatup.description,
+        id: meatup._id.toString(), // convert ObjectId to string
+      })),
     },
+    revalidate: 1,
   };
 }
 
