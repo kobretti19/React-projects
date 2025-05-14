@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "title": "Absolute Pre Silber",
+    "rückfront": 4,
+    "front": 9,
+    "print": 24,
+    "type": "silber"
+  },
+  {
+    "id": 2,
+    "title": "Absolute Pre Schwarz",
+    "rückfront": 4,
+    "front": 9,
+    "print": 24,
+    "type": "schwarz"
+  },
+  {
+    "id": 3,
+    "title": "Smart Pre Schwarz",
+    "rückfront": 10,
+    "front": 15,
+    "print": 30,
+    "type": "schwarz"
+  },
+  {
+    "id": 4,
+    "title": "Smart Pre Silber",
+    "rückfront": 10,
+    "front": 15,
+    "print": 30,
+    "type": "silber"
+  },
+  {
+    "id": 5,
+    "title": "Absolute Mono Silber",
+    "rückfront": 10,
+    "front": 15,
+    "print": 30,
+    "type": "silber"
+  },
+  {
+    "id": 6,
+    "title": "Absolute Mono Schwarz",
+    "rückfront": 10,
+    "front": 15,
+    "print": 30,
+    "type": "schwarz"
+  },
+  {
+    "id": 7,
+    "title": "PA1 Schwarz",
+    "rückfront": 10,
+    "front": 15,
+    "print": 30,
+    "type": "schwarz"
+  },
+  {
+    "id": 8,
+    "title": "PA1 Silber",
+    "rückfront": 10,
+    "front": 15,
+    "print": 30,
+    "type": "silber"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "name": "rowen-backend",
+  "version": "1.0.0",
+  "description": "database",
+  "repository": {
+    "type": "git",
+    "url": "$"
+  },
+  "license": "ISC",
+  "author": "Petroski Martin",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}
